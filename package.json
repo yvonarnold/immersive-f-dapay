@@ -1,0 +1,8 @@
+{
+  "name": "immersive-wifi-fedapay",
+  "version": "1.0.0",
+  "dependencies": {
+    "fedapay": "^1.0.5",
+    "node-routeros": "^1.6.10"
+  }
+}

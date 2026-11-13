@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paiement Réussi - Immersive Wifi-Zone</title>
+<style>
+  body { font-family: sans-serif; background: #0f172a; color: #fff; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 16px; }
+  .card { background: #fff; color: #0f172a; padding: 28px 22px; border-radius: 20px; max-width: 400px; width: 100%; text-align: center; box-shadow: 0 20px 30px rgba(0,0,0,0.4); }
+  .code-box { background: #eff6ff; border: 2px dashed #2563eb; padding: 16px; border-radius: 12px; font-size: 28px; font-weight: 800; color: #1d4ed8; letter-spacing: 2px; margin: 16px 0; }
+  .btn { display: block; width: 100%; padding: 14px; background: #10b981; color: #fff; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; border: none; cursor: pointer; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2 style="color:#10b981;">✅ Paiement Confirmé !</h2>
+    <p style="font-size:14px;color:#64748b;margin-top:6px;">Voici votre code d'accès Wi-Fi (Identifiant & Mot de passe) :</p>
+    <div class="code-box" id="ticketCode">...</div>
+    <p style="font-size:12px;color:#64748b;margin-bottom:18px;">Notez ce code ou faites une capture d'écran.</p>
+    <a id="loginBtn" href="http://immersive.net" class="btn">Se connecter à Internet maintenant</a>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code') || 'Erreur';
+    document.getElementById('ticketCode').textContent = code;
+    document.getElementById('loginBtn').href = `http://immersive.net?username=${code}&password=${code}`;
+  </script>
+</body>
+</html>
